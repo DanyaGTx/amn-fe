@@ -8,6 +8,6 @@ export default createRouter({
   mode: 'history',
   routes: [
     { path: '/login', name: 'login', alias: '/', component: LoginComponent },
-    { path: '/dashboard', name: 'dashboard', component: DashBoard }
+    { path: '/dashboard', name: 'dashboard', alias: '/', component: DashBoard }
   ]
 })

@@ -1,7 +1,7 @@
 <template>
-  <div class="max-w-[1500px] m-auto border-2 border-white mt-[10px] w-full">
+  <div class="max-w-[1500px] m-auto bg-gray-200 mt-[10px] w-full">
     <div class="grid-container w-full">
-      <header class="header h-[70px] bg-white border-b-2 border-white">
+      <header class="header h-[70px] bg-white border-white">
         <div class="flex justify-between items-center">
           <h1 class="text-[30px] mt-2 ml-2">Upwork Leads</h1>
           <div class="flex items-center mr-[22px]">
@@ -109,7 +109,21 @@ interface TableData {
   fullScore: string;
 }
 
-const filters = ref({
+interface Filters {
+  unbidded: boolean,
+  bidded: boolean,
+  period: boolean,
+  qualifications: {
+    selectedOption: string
+  }
+}
+
+interface Options {
+  value: string,
+  label: string
+}
+
+const filters = ref<Filters>({
   unbidded: false,
   bidded: false,
   period: false,
@@ -324,7 +338,7 @@ const tableDataTwo = ref<TableData[]>([
   },
 ]);
 
-const options = [
+const options = ref<Options[]>([
   {
     value: "Option1",
     label: "Option1",
@@ -345,7 +359,7 @@ const options = [
     value: "Option5",
     label: "Option5",
   },
-];
+]);
 
 
 const signOut = () => {
@@ -371,9 +385,7 @@ const paginationData = computed(() => {
   }
 })
 
-watch(selectedTab, () => {
-  console.log('changed');
-  
+watch(selectedTab, () => {  
   currentPage.value = 1
 });
 

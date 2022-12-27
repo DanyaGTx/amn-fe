@@ -12,7 +12,11 @@
           size="large"
           class="p-[15px]"
         >
-          <el-form-item class="pb-[20px] text-[30px]" label="Email" prop="email">
+          <el-form-item
+            class="pb-[20px] text-[30px]"
+            label="Email"
+            prop="email"
+          >
             <el-input v-model="form.email" type="email" />
           </el-form-item>
           <el-form-item label="Password" prop="password">
@@ -33,7 +37,7 @@
               >Submit</el-button
             >
             <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
-          </el-form-item >
+          </el-form-item>
         </el-form>
       </div>
     </div>
@@ -44,16 +48,20 @@
 import { ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { useRouter } from "vue-router";
-const form = ref({
+
+interface Form {
+  email: string,
+  password: string,
+  remember: boolean,
+}
+
+const form = ref<Form>({
   email: "",
   password: "",
   remember: false,
 });
 
-
-
 const router = useRouter();
-
 
 const ruleFormRef = ref<FormInstance>();
 
@@ -90,7 +98,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       console.log("submit!");
       console.log(form.value);
-      router.push('dashboard');
+      router.push("dashboard");
     } else {
       console.log("error submit!");
       return false;

@@ -11,6 +11,7 @@
       <span class="dialog-footer">
         <el-button @click="$emit('close-dialog', false)">Cancel</el-button>
         <el-button type="primary" @click="handleClose"> Confirm </el-button>
+        <p class="text-left">Snippet: <span v-html="props.dialogWindowData.title"></span></p> 
       </span>
     </template>
   </el-dialog>
@@ -20,8 +21,20 @@
 import { ref } from "vue";
 const dialogInput = ref("");
 
+interface Job {
+  title: string
+  base_qualified: boolean
+  full_qualified: boolean
+  job_id: string
+  lead_category: string
+  publish_time: string
+  snippet: string
+  skills: string[]
+}
+
 interface Props {
   dialogVisible: boolean;
+  dialogWindowData: Job
 }
 
 const props = defineProps<Props>();

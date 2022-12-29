@@ -38,8 +38,12 @@ declare module '@vue/runtime-core' {
     LoginComponent: typeof import('./src/components/LoginComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SideBarFilters: typeof import('./src/components/SideBarFilters.vue')['default']
     TableComponent: typeof import('./src/components/TableComponent.vue')['default']
     TableOne: typeof import('./src/components/TableOne.vue')['default']
     TableTwo: typeof import('./src/components/TableTwo.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

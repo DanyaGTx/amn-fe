@@ -4,6 +4,7 @@
       <el-table-column label="Title" width="350">
         <template #default="scope">
           <p>{{ scope.row.title }}</p>
+          <a class="text-blue-500 underline" :href="scope.row.url" target="_blank">Link</a>
           <TableDetails :currentPage="props.currentPage" :qualifications="scope.row.qualification_scores" />
         </template>
       </el-table-column>

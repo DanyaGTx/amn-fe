@@ -11,136 +11,114 @@ export const useJobsStore = defineStore("jobs", () => {
       publish_time: '1995-12-17T03:24:00',
       lead_category: 'design',
       skills: ['figma','c++','c#'],
-      details: {
-          baseQualification: {
-            location: 'USA',
-            duration: '6 month',
-            workload: 'not determined',
-            clienRating: 5,
-            FixedPrice: 4000
-          },
-          fullQualification: {
-            expertise: 'beginer',
-            clientSpent: 0,
-            lookingAgency: 'independent',
-          },
-        }
+      qualification_scores: {
+        client_rating: {value: 1, score: 1},
+        client_spent: {value: 1, score: 1},
+        duration: {value: 'string', score: 1},
+        expertise: {value: 'string', score: 1},
+        fixed_price: {value: 'string', score: 1},
+        hourly_price: {value: 'string', score: 1},
+        interview_hiring: {value: 'number', score: 1},
+        location: {value: 'string', score: 1},
+        looking_for_agency: {value: 'string', score: 1},
+        prev_freelancer_review: {value: 'string', score: 1},
+        q_points: 'string',
+        workload: {value: 'string', score: 1},
+      }
     },
     {
-      title: 'Title2',
+      title: 'Title1',
       base_qualified: false,
       full_qualified: false,
       job_id: '1',
       publish_time: '1995-12-17T03:24:00',
       lead_category: 'design',
       skills: ['figma','c++','c#'],
-      details: {
-        baseQualification: {
-          location: 'USA',
-          duration: '6 month',
-          workload: 'not determined',
-          clienRating: 5,
-          FixedPrice: 4000
-        },
-        fullQualification: {
-          expertise: 'beginer',
-          clientSpent: 0,
-          lookingAgency: 'independent',
-        },
+      qualification_scores: {
+        client_rating: {value: 1, score: 1},
+        client_spent: {value: 1, score: 1},
+        duration: {value: 'string', score: 1},
+        expertise: {value: 'string', score: 1},
+        fixed_price: {value: 'string', score: 1},
+        hourly_price: {value: 'string', score: 1},
+        interview_hiring: {value: 'number', score: 1},
+        location: {value: 'string', score: 1},
+        looking_for_agency: {value: 'string', score: 1},
+        prev_freelancer_review: {value: 'string', score: 1},
+        q_points: 'string',
+        workload: {value: 'string', score: 1},
       }
     },
     {
-      title: 'Title3',
+      title: 'Title1',
       base_qualified: false,
       full_qualified: false,
       job_id: '1',
       publish_time: '1995-12-17T03:24:00',
       lead_category: 'design',
       skills: ['figma','c++','c#'],
-      details: {
-        baseQualification: {
-          location: 'USA',
-          duration: '6 month',
-          workload: 'not determined',
-          clienRating: 5,
-          FixedPrice: 4000
-        },
-        fullQualification: {
-          expertise: 'beginer',
-          clientSpent: 0,
-          lookingAgency: 'independent',
-        },
+      qualification_scores: {
+        client_rating: {value: 1, score: 1},
+        client_spent: {value: 1, score: 1},
+        duration: {value: 'string', score: 1},
+        expertise: {value: 'string', score: 1},
+        fixed_price: {value: 'string', score: 1},
+        hourly_price: {value: 'string', score: 1},
+        interview_hiring: {value: 'number', score: 1},
+        location: {value: 'string', score: 1},
+        looking_for_agency: {value: 'string', score: 1},
+        prev_freelancer_review: {value: 'string', score: 1},
+        q_points: 'string',
+        workload: {value: 'string', score: 1},
       }
     },
     {
-      title: 'Title4',
+      title: 'Title1',
       base_qualified: false,
       full_qualified: false,
       job_id: '1',
       publish_time: '1995-12-17T03:24:00',
       lead_category: 'design',
       skills: ['figma','c++','c#'],
-      details: {
-        baseQualification: {
-          location: 'USA',
-          duration: '6 month',
-          workload: 'not determined',
-          clienRating: 5,
-          FixedPrice: 4000
-        },
-        fullQualification: {
-          expertise: 'beginer',
-          clientSpent: 0,
-          lookingAgency: 'independent',
-        },
+      qualification_scores: {
+        client_rating: {value: 1, score: 1},
+        client_spent: {value: 1, score: 1},
+        duration: {value: 'string', score: 1},
+        expertise: {value: 'string', score: 1},
+        fixed_price: {value: 'string', score: 1},
+        hourly_price: {value: 'string', score: 1},
+        interview_hiring: {value: 'number', score: 1},
+        location: {value: 'string', score: 1},
+        looking_for_agency: {value: 'string', score: 1},
+        prev_freelancer_review: {value: 'string', score: 1},
+        q_points: 'string',
+        workload: {value: 'string', score: 1},
       }
     },
     {
-      title: 'Title5',
+      title: 'Title1',
       base_qualified: false,
       full_qualified: false,
       job_id: '1',
       publish_time: '1995-12-17T03:24:00',
       lead_category: 'design',
       skills: ['figma','c++','c#'],
-      details: {
-        baseQualification: {
-          location: 'USA',
-          duration: '6 month',
-          workload: 'not determined',
-          clienRating: 5,
-          FixedPrice: 4000
-        },
-        fullQualification: {
-          expertise: 'beginer',
-          clientSpent: 0,
-          lookingAgency: 'independent',
-        },
+      qualification_scores: {
+        client_rating: {value: 1, score: 1},
+        client_spent: {value: 1, score: 1},
+        duration: {value: 'string', score: 1},
+        expertise: {value: 'string', score: 1},
+        fixed_price: {value: 'string', score: 1},
+        hourly_price: {value: 'string', score: 1},
+        interview_hiring: {value: 'number', score: 1},
+        location: {value: 'string', score: 1},
+        looking_for_agency: {value: 'string', score: 1},
+        prev_freelancer_review: {value: 'string', score: 1},
+        q_points: 'string',
+        workload: {value: 'string', score: 1},
       }
     },
-    {
-      title: 'Title6',
-      base_qualified: false,
-      full_qualified: false,
-      job_id: '1',
-      publish_time: '1995-12-17T03:24:00',
-      lead_category: 'design',
-      skills: ['figma','c++','c#'],
-      details: {
-        baseQualification: {
-          location: 'USA',
-          duration: '6 month',
-          workload: 'not determined',
-          clienRating: 5,
-          FixedPrice: 4000
-        },
-        fullQualification: {
-          expertise: 'beginer',
-          clientSpent: 0,
-          lookingAgency: 'independent',
-        },
-      }
-    },
+   
   ]);
 
   const meta = ref({

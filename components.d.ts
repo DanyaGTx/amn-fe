@@ -40,6 +40,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SideBarFilters: typeof import('./src/components/SideBarFilters.vue')['default']
     TableComponent: typeof import('./src/components/TableComponent.vue')['default']
+    TableDetails: typeof import('./src/components/TableDetails.vue')['default']
     TableOne: typeof import('./src/components/TableOne.vue')['default']
     TableTwo: typeof import('./src/components/TableTwo.vue')['default']
   }

@@ -13,6 +13,6 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/router/index.js", "src/stores/jobs.ts", "src/stores/jobs.jts", "src/api/api.ts", "src/api/services/categories.ts", "src/api/services/jobs.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/router/index.js", "src/stores/jobs.ts", "src/stores/jobs.jts", "src/api/api.ts", "src/api/services/categories.ts", "src/api/services/jobs.ts", "src/utils/dataFormatter.js", "src/utils/dataFormatter.js"],
   "references": [{ "path": "./tsconfig.node.json" }],
 }

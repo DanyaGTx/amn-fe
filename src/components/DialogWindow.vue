@@ -11,7 +11,7 @@
       <span class="dialog-footer">
         <el-button @click="$emit('close-dialog', false)">Cancel</el-button>
         <el-button type="primary" @click="handleClose"> Confirm </el-button>
-        <p class="text-left">Snippet: <span v-html="props.dialogWindowData.title"></span></p> 
+        <p v-for="(qualification, index) in props.dialogWindowData.qualification_scores">{{ index }}: {{ qualification  }}</p>
       </span>
     </template>
   </el-dialog>
@@ -29,7 +29,29 @@ interface Job {
   lead_category: string
   publish_time: string
   snippet: string
-  skills: string[]
+  skills: string[],
+  qualification_scores: {
+    location: {
+      value: string,
+      score: number
+    },
+    duration: {
+      value: string,
+      score: number
+    },
+    workload: {
+      value: string,
+      score: number
+    },
+    client_rating: {
+      value: number,
+      score: number
+    },
+    fixed_price: {
+      value: string,
+      score: number
+    }
+  },
 }
 
 interface Props {

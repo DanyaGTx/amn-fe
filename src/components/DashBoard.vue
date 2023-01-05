@@ -138,7 +138,7 @@ const getJobs = async (page: number, job: string) => {
 
     jobsStore.jobs = data.jobs;
 
-    console.log("JO", jobsStore.jobs);
+    console.log("JOBS", jobsStore.jobs);
   } catch (error) {
     isDataLoading.value = false;
     console.log(error);
@@ -151,7 +151,6 @@ const getMeta = async (page: number, job: string) => {
     const { data } = await api.jobs.getJobs(page, job);
 
     jobsStore.meta = data.meta;
-
   } catch (error) {
     isDataLoading.value = false;
     console.log(error);

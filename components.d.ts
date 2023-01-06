@@ -42,6 +42,7 @@ declare module '@vue/runtime-core' {
     TableComponent: typeof import('./src/components/TableComponent.vue')['default']
     TableDetails: typeof import('./src/components/TableDetails.vue')['default']
     TableOne: typeof import('./src/components/TableOne.vue')['default']
+    TablePersonalField: typeof import('./src/components/TablePersonalField.vue')['default']
     TableTwo: typeof import('./src/components/TableTwo.vue')['default']
   }
   export interface ComponentCustomProperties {

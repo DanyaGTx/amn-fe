@@ -8,7 +8,6 @@
               Upwork Leads
             </h1>
             <el-button class="mt-[12px] ml-[20px]">Parse</el-button>
-            <h3 class="mt-[10px] ml-[20px]">Personal name: {{ personalNameStore.personalName }}</h3>
           </div>
           <div class="flex items-center mr-[22px]">
             <el-dropdown :hide-on-click="false">

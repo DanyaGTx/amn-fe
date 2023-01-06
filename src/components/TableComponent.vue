@@ -10,17 +10,16 @@
                   <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
                     Title
                   </th>
-                  <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
+                  <th scope="col" class="text-sm font-medium px-6 py-4 whitespace-nowrap text-gray-900 border-r p-2">
                     Base qualification
                   </th>
                   <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
                     QPoints
                   </th>
-                  <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
-                    <input @keyup.enter="saveName" placeholder="Enter name" type="text"
-                      class="h-[50px] text-[15px] max-w-[100px] p-[5px] text-black">
+                  <th scope="col" class="text-sm font-medium  px-6 py-4 text-gray-900 border-r p-2">
+                    Personal name
                   </th>
-                  <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
+                  <th scope="col" class="text-sm font-medium px-6 py-4 whitespace-nowrap text-gray-900 border-r p-2">
                     Full qualification
                   </th>
                   <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
@@ -34,29 +33,28 @@
                   </th>
                 </tr>
               </thead>
-
               <tbody>
-
                 <template class="relative" v-for="tableRow in props.tableData">
                   <tr class="border">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium border-r  text-left p-2">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium border-r text-left p-2">
                       <a class="underline text-blue-500" :href="tableRow.url" target="_blank">{{ tableRow.title }}</a>
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
+                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r p-2">
                       {{ tableRow.base_qualified }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
+                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r p-2">
                       {{ tableRow.qpoints }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
+                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r p-2">
+                        <TablePersonalFieldVue />
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
+                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r p-2">
                       {{ tableRow.full_qualified }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
+                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r p-2">
                       {{ formatDate(tableRow.publish_time) }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
+                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r p-2">
                       {{ tableRow.lead_category }}
                     </td>
                     <td
@@ -96,6 +94,7 @@ import formatDate from "../utils/formatDate";
 
 import DialogWindow from "./DialogWindow.vue";
 import TableDetails from "./TableDetails.vue";
+import TablePersonalFieldVue from "./TablePersonalField.vue";
 
 const emit = defineEmits<{
   (e: "get-data", page: number): void;
@@ -191,14 +190,6 @@ const openSettings = (data: string) => {
   dialogVisible.value = true;
   console.log(data);
 };
-
-
-const saveName = (event: Event) => {
-  if (event.target instanceof HTMLInputElement) {
-    personalNameStore.personalName = event.target.value
-    event.target.blur();
-  }
-}
 
 const calculatedSizePagination = computed(() => {
   if (width.value <= 420) {

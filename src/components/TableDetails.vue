@@ -1,21 +1,21 @@
 <template>
-  <div @click="openDeatils" class="cursor-pointer translate-y-[-23px] float-left ml-6 flex">
-    <h3>{{ !isDetailsOpened ? "details" : "hide" }}</h3>
-    <img :class="{ 'rotate-90 ': !isDetailsOpened }" class="w-[18px] transition duration-300 ease-out"
+  <div @click="openDeatils" class="cursor-pointer translate-y-[-23px] ml-6 flex">
+    <h3 class="text-gray-600">{{ !isDetailsOpened ? "Open details" : "Hide details" }}</h3>
+    <img :class="{ 'rotate-90': !isDetailsOpened }" class="w-[12px] ml-[5px] h-[14px] translate-y-[6px] transition duration-300 ease-out"
       src="../assets/arrow-down.png" alt="" />
   </div>
-  <tr v-show="isDetailsOpened" class="border-t border-black">
-    <td class="text-left border-t border-black">Base qualification</td>
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200">
+    <td class="text-left border-t border-gray-200 pl-[10px]">Base qualification:</td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-black border-t">
+  <tr v-show="isDetailsOpened" class="border-gray-200 border-t">
     <td></td>
     <td></td>
     <td></td>
-    <td rowspan="13" colspan="3" class="text-[13px] text-gray-900 font-light border-black border-r text-left p-[10px]">
+    <td rowspan="13" colspan="3" class="text-[13px] text-gray-900 font-light border-gray-200 border-r text-left p-[10px]">
       <p class="text-[13px] max-h-[240px] overflow-y-auto">{{ props.snippet }}</p>
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-black ">
+  <tr v-show="isDetailsOpened" class="border-gray-200 ">
     <td></td>
     <td></td>
     <td></td>
@@ -27,7 +27,7 @@
     </td>
 
   </tr>
-  <tr v-show="isDetailsOpened" class=" border-black ">
+  <tr v-show="isDetailsOpened" class=" border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Location:
     </td>
@@ -39,7 +39,7 @@
     </td>
   </tr>
 
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Duration:
     </td>
@@ -51,7 +51,7 @@
     </td>
   </tr>
 
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Workload:
     </td>
@@ -62,7 +62,7 @@
       {{ props.qualifications.workload.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Client Rating:
     </td>
@@ -73,7 +73,7 @@
       {{ props.qualifications.client_rating.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Fixed price:
     </td>
@@ -85,12 +85,12 @@
     </td>
   </tr>
 
-  <tr class="border-t border-black" v-show="isDetailsOpened">
-    <td class="text-left border-r">Full qualification</td>
+  <tr class="border-t border-gray-200" v-show="isDetailsOpened">
+    <td class="text-left border-r pl-[10px]">Full qualification:</td>
     <td class="border-r"></td>
     <td class="border-r"></td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Expertise
     </td>
@@ -101,7 +101,7 @@
       {{ props.qualifications?.expertise?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Client Spent
     </td>
@@ -112,7 +112,7 @@
       {{ props.qualifications?.client_spent?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Looking for an agency
     </td>
@@ -123,7 +123,7 @@
       {{ props.qualifications?.looking_for_agency?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Prev Freelance Review
     </td>
@@ -134,7 +134,7 @@
       {{ props.qualifications?.prev_freelancer_reviews?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border-b border-t border-black ">
+  <tr v-show="isDetailsOpened" class="border-b border-t border-gray-200 ">
     <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Interview Hiring
     </td>
@@ -145,6 +145,10 @@
       {{ props.qualifications?.interview_hiring?.score }}
     </td>
   </tr>
+  <tr v-show="isDetailsOpened">
+    <td class="pb-[25px]"></td>
+  </tr>
+
 </template>
 
 <script lang="ts" setup>

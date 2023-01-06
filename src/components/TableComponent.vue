@@ -4,7 +4,7 @@
       <div class="overflow-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 inline-block sm:px-6 lg:px-8">
           <div class="overflow-hidden">
-            <table  v-if="jobsStore.jobs.length" class="border text-center min-h-[500px]">
+            <table v-if="jobsStore.jobs.length" class="border text-center min-h-[500px]">
               <thead class="border-b">
                 <tr>
                   <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
@@ -15,6 +15,10 @@
                   </th>
                   <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
                     QPoints
+                  </th>
+                  <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
+                    <input @keyup.enter="saveName" placeholder="Enter name" type="text"
+                      class="h-[50px] text-[15px] max-w-[100px] p-[5px] text-black">
                   </th>
                   <th scope="col" class="text-sm font-medium px-6 py-4 text-gray-900 border-r p-2">
                     Full qualification
@@ -30,11 +34,12 @@
                   </th>
                 </tr>
               </thead>
+
               <tbody>
+
                 <template class="relative" v-for="tableRow in props.tableData">
                   <tr class="border">
-                    <td
-                      class="px-6 py-4 whitespace-nowrap text-sm font-medium border-r  text-left p-2">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium border-r  text-left p-2">
                       <a class="underline text-blue-500" :href="tableRow.url" target="_blank">{{ tableRow.title }}</a>
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
@@ -42,6 +47,8 @@
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
                       {{ tableRow.qpoints }}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
                       {{ tableRow.full_qualified }}
@@ -52,13 +59,14 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r p-2">
                       {{ tableRow.lead_category }}
                     </td>
-                    <td class="text-sm text-gray-900 font-light whitespace-nowrap border-r flex justify-center pt-[10px] p-2">
+                    <td
+                      class="text-sm text-gray-900 font-light whitespace-nowrap border-r flex justify-center pt-[10px] p-2">
                       <img @click="openSettings(tableRow.job_id)" class="w-[40px] cursor-pointer text-center"
                         src="../assets/settings.png" />
                     </td>
                   </tr>
-                    <TableDetails :snippet="tableRow.snippet" :skills="tableRow.skills" :q_points="tableRow.qpoints" :currentPage="props.currentPage"
-                    :qualifications="tableRow.qualification_scores" />      
+                  <TableDetails :snippet="tableRow.snippet" :skills="tableRow.skills" :q_points="tableRow.qpoints"
+                    :currentPage="props.currentPage" :qualifications="tableRow.qualification_scores" />
                 </template>
               </tbody>
             </table>
@@ -80,8 +88,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useWindowSize } from "@vueuse/core";
-import { ElTable, InputNumberEmits } from "element-plus";
 import { useJobsStore } from "../stores/jobs";
+import { usePersonalNameStore } from "../stores/personalName";
 import { computed } from "@vue/reactivity";
 
 import formatDate from "../utils/formatDate";
@@ -100,12 +108,14 @@ const setCurrentPage = (page: number) => {
   emit("get-data", page);
 };
 
+
+
 const dialogWindowData = ref();
 
 const dialogVisible = ref(false);
 
 const jobsStore = useJobsStore();
-
+const personalNameStore = usePersonalNameStore();
 const { width } = useWindowSize();
 
 interface Job {
@@ -178,13 +188,17 @@ interface Props {
 const props = defineProps<Props>();
 
 const openSettings = (data: string) => {
-  // console.log(row);
-
   dialogVisible.value = true;
   console.log(data);
-
-  // dialogWindowData.value = row;
 };
+
+
+const saveName = (event: Event) => {
+  if (event.target instanceof HTMLInputElement) {
+    personalNameStore.personalName = event.target.value
+    event.target.blur();
+  }
+}
 
 const calculatedSizePagination = computed(() => {
   if (width.value <= 420) {

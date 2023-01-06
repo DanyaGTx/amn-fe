@@ -8,6 +8,7 @@
               Upwork Leads
             </h1>
             <el-button class="mt-[12px] ml-[20px]">Parse</el-button>
+            <h3 class="mt-[10px] ml-[20px]">Personal name: {{ personalNameStore.personalName }}</h3>
           </div>
           <div class="flex items-center mr-[22px]">
             <el-dropdown :hide-on-click="false">
@@ -26,38 +27,22 @@
           </div>
         </div>
       </header>
-      <div
-        class="flex max-[1400px]:block max-[1200px]:items-center max-[1400px]:justify-center h-[800px]"
-      >
+      <div class="flex max-[1400px]:block max-[1200px]:items-center max-[1400px]:justify-center h-[800px]">
         <el-tabs v-model="selectedTab" class="demo-tabs p-[10px]">
-          <el-tab-pane
-            v-for="category in categoriesStore.categories"
-            :label="category"
-            :name="category"
-            ><TableComponent
-              @set-page="(page) => (currentPage = page)"
-              @get-data="loadDataWithPage"
-              :currentPage="currentPage"
-              :total="jobsStore.meta.total_count"
-              :isDataLoading="isDataLoading"
-              :selectedTab="selectedTab"
-              :table-data="jobsStore.jobs"
-          /></el-tab-pane>
+          <el-tab-pane v-for="category in categoriesStore.categories" :label="category" :name="category">
+            <TableComponent @set-page="(page) => (currentPage = page)" @get-data="loadDataWithPage"
+              :currentPage="currentPage" :total="jobsStore.meta.total_count" :isDataLoading="isDataLoading"
+              :selectedTab="selectedTab" :table-data="jobsStore.jobs" />
+          </el-tab-pane>
         </el-tabs>
         <div class="sidebar w-[250px] bg-white ml-auto sticky top-0 z-10">
           <div class="text-center mt-[20px]">
             <el-button @click="isFiltersShowed = !isFiltersShowed">{{
-              isFiltersShowed ? "Hide Filters" : "Show Filters"
+              isFiltersShowed? "Hide Filters": "Show Filters"
             }}</el-button>
           </div>
-          <div
-            class="max-[1400px]:mt-[-360px] max-[1400px]:bg-white"
-            v-show="isFiltersShowed"
-          >
-            <SideBarFilters
-              @accept-filters="acceptFilters"
-              :options="options"
-            />
+          <div class="max-[1400px]:mt-[-360px] max-[1400px]:bg-white" v-show="isFiltersShowed">
+            <SideBarFilters @accept-filters="acceptFilters" :options="options" />
           </div>
         </div>
       </div>
@@ -76,9 +61,11 @@ import { useCategoriesStore } from "../stores/categories";
 
 import { api } from "../api/api";
 import SideBarFilters from "./SideBarFilters.vue";
+import { usePersonalNameStore } from "../stores/personalName";
 
 const jobsStore = useJobsStore();
 const categoriesStore = useCategoriesStore();
+const personalNameStore = usePersonalNameStore();
 const router = useRouter();
 
 const selectedTab = ref<string>("ruby");
@@ -191,9 +178,11 @@ onMounted(() => {
 .header {
   grid-area: header;
 }
+
 .sidebar {
   grid-area: menu;
 }
+
 .main {
   grid-area: main;
 }
@@ -205,7 +194,7 @@ onMounted(() => {
     "main main main main main menu";
 }
 
-.demo-tabs > .el-tabs__content {
+.demo-tabs>.el-tabs__content {
   padding: 32px;
   color: #6b778c;
   font-size: 32px;

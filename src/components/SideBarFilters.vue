@@ -12,23 +12,13 @@
       </div>
       <div class="mt-[10px]">
         <h2>Qualifications</h2>
-        <el-select
-          v-model="filters.qualifications.selectedOption"
-          class="m-2"
-          placeholder="Select"
-        >
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          />
+        <el-select v-model="filters.qualifications.selectedOption" class="m-2" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </div>
     </div>
     <div class="text-center mt-[10px]">
-      <el-button @click="acceptFilters" type="success"
-        >Accept filters
+      <el-button @click="acceptFilters" type="success">Accept filters
       </el-button>
     </div>
   </div>

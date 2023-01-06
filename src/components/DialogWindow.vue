@@ -1,10 +1,5 @@
 <template>
-  <el-dialog
-    v-model="props.dialogVisible"
-    title="Modal Window"
-    width="30%"
-    :before-close="handleClose"
-  >
+  <el-dialog v-model="props.dialogVisible" title="Modal Window" width="30%" :before-close="handleClose">
     <span>Enter text</span>
     <el-input v-model="dialogInput" placeholder="Please input" />
     <template #footer>
@@ -21,42 +16,42 @@ import { ref } from "vue";
 const dialogInput = ref("");
 
 interface Job {
-  title: string
-  base_qualified: boolean
-  full_qualified: boolean
-  job_id: string
-  lead_category: string
-  publish_time: string
-  snippet: string
-  skills: string[],
-  qpoints: number,
+  title: string;
+  base_qualified: boolean;
+  full_qualified: boolean;
+  job_id: string;
+  lead_category: string;
+  publish_time: string;
+  snippet: string;
+  skills: string[];
+  qpoints: number;
   qualification_scores: {
     location: {
-      value: string,
-      score: number
-    },
+      value: string;
+      score: number;
+    };
     duration: {
-      value: string,
-      score: number
-    },
+      value: string;
+      score: number;
+    };
     workload: {
-      value: string,
-      score: number
-    },
+      value: string;
+      score: number;
+    };
     client_rating: {
-      value: number,
-      score: number
-    },
+      value: number;
+      score: number;
+    };
     fixed_price: {
-      value: string,
-      score: number
-    }
-  },
+      value: string;
+      score: number;
+    };
+  };
 }
 
 interface Props {
   dialogVisible: boolean;
-  dialogWindowData: Job
+  dialogWindowData: Job;
 }
 
 const props = defineProps<Props>();

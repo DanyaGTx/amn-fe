@@ -1,225 +1,148 @@
 <template>
-  <div
-    @click="openDeatils"
-    class="cursor-pointer translate-y-[-23px] float-left ml-6 flex"
-  >
+  <div @click="openDeatils" class="cursor-pointer translate-y-[-23px] float-left ml-6 flex">
     <h3>{{ !isDetailsOpened ? "details" : "hide" }}</h3>
-    <img
-      :class="{ 'rotate-90 ': !isDetailsOpened }"
-      class="w-[18px] transition duration-300 ease-out"
-      src="../assets/arrow-down.png"
-      alt=""
-    />
+    <img :class="{ 'rotate-90 ': !isDetailsOpened }" class="w-[18px] transition duration-300 ease-out"
+      src="../assets/arrow-down.png" alt="" />
   </div>
-  <tr v-show="isDetailsOpened">
-    <td class="text-left">Base qualification</td>
+  <tr v-show="isDetailsOpened" class="border-t border-black">
+    <td class="text-left border-t border-black">Base qualification</td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-black border-t">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td rowspan="13" colspan="3" class="text-[13px] text-gray-900 font-light border-black border-r text-left p-[10px]">
+      <p class="text-[13px] max-h-[240px] overflow-y-auto">{{ props.snippet }}</p>
+    </td>
+  </tr>
+  <tr v-show="isDetailsOpened" class="border-black ">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td rowspan="12" colspan="4" class="text-[13px] text-gray-900 font-light border-r text-left p-[10px]">
+      <div>
+        <h3>Skills:</h3>
+        <p v-for="skill in props.skills">{{ skill }}</p>
+      </div>
+    </td>
+
+  </tr>
+  <tr v-show="isDetailsOpened" class=" border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Location:
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.location.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.location.score }}
     </td>
   </tr>
 
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Duration:
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.duration.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.duration.score }}
     </td>
   </tr>
 
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Workload:
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.workload.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.workload.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Client Rating:
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.client_rating.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.client_rating.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Fixed price:
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.fixed_price.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications.fixed_price.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
-      Job snippet:
-    </td>
+
+  <tr class="border-t border-black" v-show="isDetailsOpened">
+    <td class="text-left border-r">Full qualification</td>
     <td class="border-r"></td>
     <td class="border-r"></td>
-    <td
-      rowspan="1"
-      colspan="4"
-      class="text-[13px] text-gray-900 font-light border-r text-left p-[10px]"
-    >
-      <p class="">{{ props.snippet }}</p>
-    </td>
   </tr>
-  <tr v-show="isDetailsOpened">
-    <td class="text-left">Full qualification</td>
-  </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Expertise
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.expertise?.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.expertise?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Client Spent
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.client_spent?.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.client_spent?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Looking for an agency
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.looking_for_agency?.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.looking_for_agency?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Prev Freelance Review
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.prev_freelancer_reviews?.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.prev_freelancer_reviews?.score }}
     </td>
   </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
+  <tr v-show="isDetailsOpened" class="border-b border-t border-black ">
+    <td class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r">
       Interview Hiring
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.interview_hiring?.value }}
     </td>
-    <td
-      class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r"
-    >
+    <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap border-r">
       {{ props.qualifications?.interview_hiring?.score }}
-    </td>
-  </tr>
-  <tr v-show="isDetailsOpened" class="border border-black bg-orange-200">
-    <td
-      class="text-sm text-gray-900 font-light text-left pl-[25px] whitespace-nowrap border-r"
-    >
-      Job Skills:
-    </td>
-    <td></td>
-    <td class="border-l"></td>
-    <td
-      rowspan="1"
-      colspan="2"
-      class="text-sm text-gray-900 font-light whitespace-nowrap border-r border-l text-left p-[10px]"
-    >
-      Skills:
-      <p v-for="skill in props.skills">{{ skill }}</p>
     </td>
   </tr>
 </template>
@@ -298,4 +221,30 @@ watch(
 );
 </script>
 
-<style></style>
+<style>
+.tableClass {
+  display: grid;
+  grid-template-columns: 1fr 1fr 25%;
+  /* max-width: 1300px; */
+}
+
+.tableClass>div {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.tables {
+  display: flex;
+}
+
+.job_text-tableClass {
+  /* max-width: 500px; */
+  border: 1px solid black;
+}
+
+.skills-tableClass {
+  text-align: center;
+  min-width: 50px;
+  border: 1px solid black;
+}
+</style>
